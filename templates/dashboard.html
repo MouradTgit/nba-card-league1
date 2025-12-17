@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>My Teams</h2>
+    <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+    
+    <form method="POST" action="{{ url_for('create_team') }}" class="mt-4">
+        <input type="text" name="team_name" placeholder="Team Name" class="form-control mb-2" required>
+        <select name="player1" class="form-select mb-2" required>
+            {% for p in players %}
+            <option value="{{ p.id }}">{{ p.name }} - {{ p.points }} pts</option>
+            {% endfor %}
+        </select>
+        <select name="player2" class="form-select mb-2" required>
+            {% for p in players %}
+            <option value="{{ p.id }}">{{ p.name }} - {{ p.points }} pts</option>
+            {% endfor %}
+        </select>
+        <select name="player3" class="form-select mb-2" required>
+            {% for p in players %}
+            <option value="{{ p.id }}">{{ p.name }} - {{ p.points }} pts</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">Create Team</button>
+    </form>
+    
+    <h3 class="mt-4">Your Teams</h3>
+    {% for team in teams %}
+    <div class="card mb-2">
+        <div class="card-body">
+            <h5>{{ team.name }}</h5>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+ Add a template to index route
+ CRUD cards
+Crud league
+Add auth
+deploy to render
+Add tests
